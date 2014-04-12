@@ -1,0 +1,6 @@
+name = Laravel Example
+description = Example for Laravel module.
+core = 7.x
+php = 5.3
+
+dependencies[] = laravel

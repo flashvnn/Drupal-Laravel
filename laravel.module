@@ -1,0 +1,37 @@
+<?php
+/**
+ * @file
+ * Laravel integration with Drupal.
+ */
+
+/**
+ * Implements hook_init().
+ */
+function laravel_init() {
+  laravel_load_instance();
+}
+
+/**
+ * Load laravel application instance.
+ */
+function laravel_load_instance(){
+  composer_manager_register_autoloader();
+  if(class_exists('\\Drupal\\Laravel\\Application')){
+    if(!app()){
+      $app = new \Drupal\Laravel\Application(__DIR__);
+      $app['path.storage'] = variable_get('file_public_path', conf_path() . '/files');
+    }
+  }else{
+    laravel__showWarning();
+  }
+}
+
+/**
+ * Show warning message.
+ */
+function laravel__showWarning(){
+    if(!drupal_is_cli()){
+      $message = t('Laravel components can not load, please install require components with Composer and Composer Manager.');
+      drupal_set_message($message, 'warning');
+    }
+}

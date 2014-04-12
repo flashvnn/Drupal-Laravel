@@ -1,0 +1,5 @@
+{
+  "autoload": {
+    "psr-0": {"Drupal\\laravel_example": "lib"}
+  }
+}

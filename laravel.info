@@ -1,0 +1,6 @@
+name = Laravel
+description = Integration Laravel component with Drupal.
+core = 7.x
+php = 5.3
+
+dependencies[] = composer_manager

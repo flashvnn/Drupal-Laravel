@@ -1,0 +1,22 @@
+{
+  "name": "drupal/laravel",
+  "license": "GPL2",
+  "authors": [
+      {
+          "name": "Thao Huynh Khac",
+          "email": "huynhkhacthao@gmail.com"
+      }
+  ],
+	"require": {
+    "illuminate/config": "4.1.*@dev",
+    "illuminate/http": "4.1.*@dev",
+    "illuminate/database": "4.1.*@dev",
+    "illuminate/translation": "4.1.*@dev",
+    "illuminate/validation": "4.1.*@dev",
+    "illuminate/view": "4.1.*@dev",
+    "anahkiasen/underscore-php" : "dev-master"
+	},
+  "autoload": {
+    "psr-0": {"Drupal\\Laravel": "lib"}
+  }
+}

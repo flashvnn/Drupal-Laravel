@@ -1,0 +1,102 @@
+<?php
+/**
+ * @file
+ * Laravel Example.
+ */
+use \Drupal\laravel_example\Example\User;
+
+/**
+ * Implements hook_menu().
+ */
+function laravel_example_menu() {
+
+  $items['laravel-example'] = array(
+    'title' => 'Laravel Example',
+    'page callback' => 'laravel_example_page',
+    'page arguments' => array() ,
+    'access arguments' => array(
+      'access content'
+    ) ,
+  );
+
+  $items['laravel-example/%'] = array(
+    'title' => 'Laravel Example',
+    'page callback' => 'laravel_example_detail_page',
+    'page arguments' => array(
+      1
+    ) ,
+    'access arguments' => array(
+      'access content'
+    ) ,
+  );
+
+  $items['laravel-controller'] = array(
+    'page callback' => '\\Drupal\\page_controller\\Controller\\PageController::createPage',
+    'page arguments' => array(
+      '\\Drupal\\laravel_example\\Example\\ExampleController',
+      'myPageControllerViewCallback',
+      'demo1',
+      'demo2',
+    ),
+    'access arguments' => array(
+      'access content'
+    ) ,
+  );
+
+  $items['laravel-controller/%/%'] = array(
+    'page callback' => '\\Drupal\\page_controller\\Controller\\PageController::createPage',
+    'page arguments' => array(
+      '\\Drupal\\laravel_example\\Example\\ExampleController',
+      'myPageControllerViewCallback',
+      1,
+      2,
+    ),
+    'access arguments' => array(
+      'access content'
+    ) ,
+  );
+  return $items;
+}
+
+/**
+ * Implements hook_init().
+ */
+function laravel_example_init() {
+
+}
+
+function laravel_example_page() {
+  if($users = User::all()){
+    dpm($users->toArray());
+  }
+  return "OK";
+}
+
+function laravel_example_detail_page($group) {
+
+  return "OK";
+}
+
+function form_example_tutorial_2($form, &$form_state) {
+  $form['description'] = array(
+    '#type' => 'item',
+    '#title' => t('A simple form with a submit button'),
+  );
+
+  $form['name'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Name'),
+  );
+
+  // Adds a simple submit button that refreshes the form and clears its
+  // contents. This is the default behavior for forms.
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => 'Submit',
+  );
+  return $form;
+}
+
+function form_example_tutorial_2_submit($form, &$form_state){
+  dpm($form_state);
+}
