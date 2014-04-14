@@ -17,6 +17,8 @@ return array(
     'Illuminate\Database\DatabaseServiceProvider',// used with DB alias
     'Illuminate\Translation\TranslationServiceProvider',//used with Request, Cookie alias.
     'Illuminate\Validation\ValidationServiceProvider',//used with Validator alias.
+
+    'Drupal\Laravel\YAML\YAMLServiceProvider',//used with View alias.
     'Drupal\Laravel\ViewServiceProvider',//used with View alias.
   ),
   'aliases' => array(
@@ -29,6 +31,7 @@ return array(
     'Carbon'    => 'Carbon\Carbon',
     'Str'       => 'Illuminate\Support\Str',
 
+    'YAML'      => 'Drupal\Laravel\YAML\Facades\YAML',
 
     'ClassLoader'     => 'Illuminate\Support\ClassLoader',
     // Facades classes.
@@ -51,6 +54,6 @@ return array(
     // Validator (option)
     'Validator' => 'Illuminate\Support\Facades\Validator',
     //View (option)
-    'View'      => 'Illuminate\Support\Facades\View',
+    'ViewRender'      => 'Illuminate\Support\Facades\View',
   ),
 );

@@ -1,0 +1,11 @@
+dynamic languages: &DLANGS
+  - Perl
+  - Python
+  - PHP
+  - Ruby
+compiled languages: &CLANGS
+  - C/C++
+  - Java
+all languages:
+  - *DLANGS
+  - *CLANGS
